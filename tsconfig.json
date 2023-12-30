@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "target": "es5", // Set your target JavaScript version
+      "lib": ["dom", "es2015"], // Define libraries to include
+      "jsx": "react", // For React projects
+      "strict": true, // Enable strict type checking
+      "module": "esnext", // Specify module code generation
+      "moduleResolution": "node", // How module files are resolved
+      "esModuleInterop": true // Enable interoperability between CommonJS and ES Modules
+    },
+    "include": ["src"] // Specify the files to include in compilation
+  }
+  
