@@ -17,21 +17,22 @@ module.exports = {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader', // You might need additional loaders for TypeScript
+          loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'], // Add presets as needed
+            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
           },
         },
       },
-      // Other rules for handling CSS, images, etc.
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html', // Your HTML template
-    //   favicon: 'public/favicon.ico', // Your favicon path
+      template: 'public/index.html',
     }),
-    // Other plugins you might need
   ],
   devServer: {
     historyApiFallback: true,
