@@ -1,9 +1,10 @@
 import React from "react";
+import ContractForm from "./ContractForm";
 
 const PluginMain = () => {
     return(
         <div>
-            <h1>PluginMain</h1>
+            <ContractForm />
         </div>
     )
 }
