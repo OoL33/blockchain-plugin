@@ -15,6 +15,7 @@ build/
 Thumbs.db
 
 # Misc.
+.env
 .env.local
 .env.development.local
 .env.test.local
