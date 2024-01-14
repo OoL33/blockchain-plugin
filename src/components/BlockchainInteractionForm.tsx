@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import registerHas hFunction from "./blockchain-interactions/register-hash"; // Import your refactored function
+import registerCopyrightHashWithExistingContract from "../blockchain-interactions/register-hash"; // Import your refactored function
 
 const BlockchainInteractionForm = () => {
   const [contentHash, setContentHash] = useState("");

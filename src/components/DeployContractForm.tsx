@@ -1,23 +1,21 @@
 import React, { useState } from "react";
 import deployContract from "../blockchain-interactions/deployment";
 
-const DeployContract = () => {
-  const [deployedAddress, setDeployedAddress] = useState("");
+const DeployContractForm = ({ providerAddress, privateKey, onDeployment }) => {
   const [loading, setLoading] = useState(false);
 
   const handleDeployContract = async () => {
     try {
       setLoading(true);
 
-      const providerAddress = process.env.REACT_APP_PROVIDER_ADDRESS || "";
-      const privateKey = process.env.REACT_APP_PRIVATE_KEY || "";
-
       if (!providerAddress || !privateKey) {
         throw new Error("Provider address or private key not provided");
       }
+
       const deployedAddress = await deployContract(providerAddress, privateKey);
 
-      setDeployedAddress(deployedAddress);
+      // Callback to parent component with the deployed address
+      onDeployment(deployedAddress);
     } catch (error) {
       console.error("Deployment failed:", error);
     } finally {
@@ -27,13 +25,14 @@ const DeployContract = () => {
 
   return (
     <div>
-      <button onClick={handleDeployContract}>Deploy Contract</button>
-      {loading ? "Deploying..." : "Deploy Contract"}
-      {deployedAddress && (
-        <p>Contract Deployed at Address: {deployedAddress}</p>
-      )}
+      <button
+        onClick={handleDeployContract}
+        className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+      >
+        {loading ? "Deploying..." : "Deploy Contract"}
+      </button>
     </div>
   );
 };
 
-export default DeployContract;
+export default DeployContractForm;
