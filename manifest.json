@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "BitMarker",
+  "version": "1.0",
+  "description": "Description of your extension",
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/favicon-16x16.png",
+      "32": "images/favicon-32x32.png",
+      "128": "images/favicon.ico"
+    }
+  },
+  "permissions": ["activeTab"],
+  "icons": {
+    "16": "images/favicon-16x16.png",
+    "32": "images/favicon-32x32.png",
+    "128": "images/favicon.ico"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
