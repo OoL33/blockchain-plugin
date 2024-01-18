@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack serve --mode development --open",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
     "compile-contract": "cd contracts && npx hardhat compile",
     "deploy-contract": "ts-node-esm src/blockchain-interactions/deployment.ts",
     "register-hash": "ts-node-esm src/blockchain-interactions/register-hash.ts",
